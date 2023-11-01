@@ -1,3 +1,1 @@
 # Puss-in-Boots
-
-test :)
