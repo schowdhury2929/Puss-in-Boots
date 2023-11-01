@@ -6,13 +6,15 @@ void setup() {
   servo for Hat
   fight button
   */
-
-  bool fear = true;
-  bool loss = false;
 }
 
 void loop() {
   /* 
+  if wish on base
+    Kitty faces Puss
+
+  if Puss and 
+    
   if Puss is on base
     fire up
 
