@@ -1,11 +1,14 @@
 void setup() {
   /* 
-  servo for Puss
+  servo for Kitty
   servo for Death
-  servo for Sword
-  servo for Hat
-  fight button
+  servo for Sword/Hat
   */
+  
+
+  bool fear = true;
+  bool prepared = false;
+  bool loss = false;
 }
 
 void loop() {
@@ -13,27 +16,47 @@ void loop() {
   if wish on base
     Kitty faces Puss
 
-  if Puss and 
+    if Puss and Kitty touch paws & fear == true
+      team();
     
-  if Puss is on base
-    fire up
+    if Puss is on base & fear == false
+      prepared();
+        
+    if Puss near Death & prepared == true & loss == false
+        loss();
 
-    if wish removed, moved forward, & fear == true
-      fear = false;
-      30 degrees forward and back
-      loss = true;
-      switch to hurt Puss
-      
-    if retreat & loss == true
-      switch Death to scythe
-      switch Puss to Gatito Blade
+    if sword and scythe cross
+      win();
+  */
+}
 
-    if Puss has sword and hat and moved forward
-      loss = false;
+void team() {
+  /*
+  Kitty turns around
+  fear = false;
+  */
+}
 
-      if sword and scythe cross
-        switch Death to sad side
-        fire down
-        Death retreats
+void prepared() {
+  /*
+  fire up
+  fight = true
+  */
+}
+
+void loss() {
+  /*
+  30 degrees forward and back
+  loss = true;
+  switch Death to scythe
+  weapon revealed
+  */
+}
+
+void win() {
+  /*
+  30 degrees forward and back
+  switch Death to lose side
+  fire down
   */
 }
