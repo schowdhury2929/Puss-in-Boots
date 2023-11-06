@@ -1,39 +1,69 @@
+#include <Servo.h>
+
+Servo kitty;
+//Servo death;
+//Servo weapon;
+
+const int buttonPin = 2;
+
 void setup() {
-  /* 
-  servo for Puss
-  servo for Death
-  servo for Sword
-  servo for Hat
-  fight button
+  kitty.attach(4);
+  kitty.write(0);
+  //death.attach();
+  //weapon.attach();
+  pinMode(buttonPin, INPUT);
+
+  bool fear = true;
+  bool prepared = false;
+  bool loss = false;
+}
+
+void loop() { 
+  if (digitalRead(buttonPin) == HIGH) {
+    kitty.write(90);
+  }
+  /*
+  if Puss and Kitty touch paws & fear == true
+    team();
+    
+  if Puss is on base & fear == false
+    prepared();
+        
+  if Puss near Death & prepared == true & loss == false
+    loss();
+
+  if sword and scythe cross
+    win();
   */
 }
 
-void loop() {
-  /* 
-  if wish on base
-    Kitty faces Puss
+void team() {
+  /*
+  Kitty turns around
+  fear = false;
+  */
+}
 
-  if Puss and 
-    
-  if Puss is on base
-    fire up
+void prepared() {
+  /*
+  fire up
+  fight = true
+  */
+}
 
-    if wish removed, moved forward, & fear == true
-      fear = false;
-      30 degrees forward and back
-      loss = true;
-      switch to hurt Puss
-      
-    if retreat & loss == true
-      switch Death to scythe
-      switch Puss to Gatito Blade
+void loss() {
+  /*
+  30 degrees forward and back
+  loss = true;
+  switch Death to scythe
+  weapon revealed
+  */
+}
 
-    if Puss has sword and hat and moved forward
-      loss = false;
-
-      if sword and scythe cross
-        switch Death to sad side
-        fire down
-        Death retreats
+void win() {
+  /*
+  30 degrees forward and back
+  switch Death to lose side
+  fire down
   */
 }
