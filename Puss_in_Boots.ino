@@ -15,6 +15,7 @@ const int fire = 13;
 bool fear = true;
 bool prepared = false;
 bool lost = false;
+bool won = false;
 
 //sets up servos and gets them into position
 void setup() {
@@ -23,7 +24,7 @@ void setup() {
   death.attach(9);
   death.write(0);
   weapon.attach(10);
-  weapon.write(0);
+  weapon.write(10);
 
   pinMode(wish, INPUT);
   pinMode(paws, INPUT);
@@ -77,9 +78,13 @@ void light() {
 //the first fight between Puss and Death, starts once Puss is near Death
 void loss() {
   death.write(60);
+  delay(250);
   death.write(120);
+  delay(250);
   death.write(60);
+  delay(250);
   death.write(120);
+  delay(250);
   death.write(90);
   weapon.write(70);
 }
@@ -87,9 +92,13 @@ void loss() {
 //the second fight between Puss and Death, starts once Puss approaches Death with his weapon
 void win() {
   death.write(60);
+  delay(250);
   death.write(120);
+  delay(250);
   death.write(60);
+  delay(250);
   death.write(120);
+  delay(250);
   death.write(180);
   digitalWrite(fire, LOW);
 }
