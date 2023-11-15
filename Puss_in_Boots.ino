@@ -18,7 +18,6 @@ bool lost = false;
 
 //sets up servos and gets them into position
 void setup() {
-  Serial.begin(9600);
   kitty.attach(8);
   kitty.write(180);
   death.attach(9);
@@ -41,12 +40,10 @@ void loop() {
 
   //makes Kitty block Puss's way to the arena after the wish is removed from him
   if (digitalRead(wish) == HIGH && fear == true) {
-    Serial.println("wish");
     kitty.write(0);
   }
 
   if (digitalRead(paws) == HIGH && fear == true) {
-    Serial.println("paws");
     team();
   }
 
@@ -56,19 +53,17 @@ void loop() {
   }
 
   if (digitalRead(fight) == HIGH && prepared == true) {
-    Serial.println("fight");
     loss();
   }
 
   if (digitalRead(armed) == HIGH) {
-    Serial.println("armed");
     win();
   }
 }
 
 //gets Kitty out of Puss's way when they touch
 void team() {
-  //kitty.write(90);
+  kitty.write(90);
   fear = false;
 }
 
@@ -86,7 +81,7 @@ void loss() {
   death.write(60);
   death.write(120);
   death.write(90);
-  weapon.write(40);
+  weapon.write(70);
 }
 
 //the second fight between Puss and Death, starts once Puss approaches Death with his weapon
