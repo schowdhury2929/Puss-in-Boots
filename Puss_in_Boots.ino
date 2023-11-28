@@ -24,7 +24,7 @@ void setup() {
   death.attach(9);
   death.write(0);
   weapon.attach(10);
-  weapon.write(10);
+  weapon.write(30);
 
   pinMode(wish, INPUT);
   pinMode(paws, INPUT);
@@ -49,15 +49,14 @@ void loop() {
   }
 
   if (digitalRead(boots) == HIGH && fear == false) {
-    Serial.println("boots");
     light();
   }
 
-  if (digitalRead(fight) == HIGH && prepared == true) {
+  if (digitalRead(fight) == HIGH && lost == false) {
     loss();
   }
 
-  if (digitalRead(armed) == HIGH) {
+  if (digitalRead(armed) == HIGH && won == false) {
     win();
   }
 }
@@ -86,8 +85,10 @@ void loss() {
   death.write(120);
   delay(250);
   death.write(90);
-  weapon.write(70);
-}
+  weapon.write(60);
+  lost = true;
+  delay(1000);
+  }
 
 //the second fight between Puss and Death, starts once Puss approaches Death with his weapon
 void win() {
@@ -100,5 +101,7 @@ void win() {
   death.write(120);
   delay(250);
   death.write(180);
+  won = true;
+  delay(1000);
   digitalWrite(fire, LOW);
 }
